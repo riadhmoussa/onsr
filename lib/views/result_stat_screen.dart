@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onsr/controllers/result_stat_controller.dart';
-
+import 'package:onsr/widgets/bar_chart_widget.dart';
 import '../models/statistic_model.dart';
 
 class ResultStatScreen extends StatelessWidget {
@@ -24,12 +24,50 @@ class ResultStatScreen extends StatelessWidget {
             return Text('لا توجد بيانات',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
           } else {
-            return ListView.builder(
-              itemCount: controller.statisticModelList.length,
-              itemBuilder: (context, index) {
-                final statistic = controller.statisticModelList[index];
-                return _buildStatisticCard(statistic);
-              },
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.statisticModelList.length,
+                    itemBuilder: (context, index) {
+                      final statistic = controller.statisticModelList[index];
+                      return _buildStatisticCard(statistic);
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  BarChartWidget(
+                    title: 'حوادث',
+                    points: controller.statisticModelList.map((stat) {
+                      return StatisticPoint(
+                        label: stat.labelle ?? 'غير متوفر',
+                        value: double.tryParse(stat.accidents ?? '0') ?? 0,
+                      );
+                    }).toList(),
+                  ),
+                  SizedBox(height: 20),
+                  BarChartWidget(
+                    title: 'قتلى',
+                    points: controller.statisticModelList.map((stat) {
+                      return StatisticPoint(
+                        label: stat.labelle ?? 'غير متوفر',
+                        value: double.tryParse(stat.tues ?? '0') ?? 0,
+                      );
+                    }).toList(),
+                  ),
+                  SizedBox(height: 20),
+                  BarChartWidget(
+                    title: 'جرحى',
+                    points: controller.statisticModelList.map((stat) {
+                      return StatisticPoint(
+                        label: stat.labelle ?? 'غير متوفر',
+                        value: double.tryParse(stat.blesses ?? '0') ?? 0,
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
             );
           }
         }),
