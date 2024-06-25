@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079419670421",
+    "project_id": "apponsr-bcf81",
+    "storage_bucket": "apponsr-bcf81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079419670421:android:6bc001cfc0e8cf30da309c",
+        "android_client_info": {
+          "package_name": "com.example.onsr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqwgmF4A7CJXNgCoFXmDDSljlnsQmlXZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
