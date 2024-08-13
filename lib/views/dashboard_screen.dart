@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onsr/controllers/dashboard_controller.dart';
+import 'package:onsr/routes/app_routes.dart';
 
 import '../models/option_model.dart';
 
@@ -11,14 +13,14 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('المرصد الوطني لسلامة المرور'),
+        title: const Text('المرصد الوطني لسلامة المرور'),
         backgroundColor: Colors.black,
       ),
       body: GetBuilder<DashboardController>(
         builder: (controller) {
           return GridView.builder(
-            padding: EdgeInsets.all(16.0),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            padding: const EdgeInsets.all(16.0),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 20.0,
               crossAxisSpacing: 20.0,
@@ -37,7 +39,19 @@ class DashboardView extends StatelessWidget {
 
   Widget _buildOptionCard(OptionModel option, int index) {
     return GestureDetector(
-      onTap: () => Get.toNamed(option.route),
+      onTap: () {
+        if (index == 4) {
+          FirebaseAuth auth = FirebaseAuth.instance;
+          User? user = auth.currentUser;
+          if (user == null) {
+            Get.toNamed(AppRoutes.login);
+          } else {
+            Get.toNamed(option.route);
+          }
+        } else {
+          Get.toNamed(option.route);
+        }
+      },
       child: Card(
         elevation: 5.0,
         shape: RoundedRectangleBorder(
@@ -50,7 +64,7 @@ class DashboardView extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
-                  color: Color(0xFFff0000),
+                  color: const Color(0xFFff0000),
                 ),
               ),
             ),
@@ -61,11 +75,12 @@ class DashboardView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.insert_chart, size: 40.0, color: Colors.black),
-                  SizedBox(height: 10.0),
+                  const Icon(Icons.insert_chart,
+                      size: 40.0, color: Colors.black),
+                  const SizedBox(height: 10.0),
                   Text(
                     option.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
@@ -89,7 +104,7 @@ class DashboardView extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_forward,
                   size: 24.0,
                   color: Colors.black,

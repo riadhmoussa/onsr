@@ -13,4 +13,11 @@ class AppRoutes {
   static const blackSpots = '/blackSpots';
   static const accidentsByYear = '/accidentsByYear';
   static const statisticalConcepts = '/statisticalConcepts';
+  static const calender = '/calender';
+  static const trafficCenter = '/trafficCenter';
+  static const login = '/login';
+  static const forgetPassword = '/forgetPassword';
+  static const register = '/register';
+  static const claims = '/claims';
+
 }

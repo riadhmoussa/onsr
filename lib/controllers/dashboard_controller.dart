@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import '../models/option_model.dart';
 import '../routes/app_routes.dart';
 
-class DashboardController extends GetxController with SingleGetTickerProviderMixin {
+class DashboardController extends GetxController
+    with SingleGetTickerProviderMixin {
   var options = <OptionModel>[].obs;
   late AnimationController animationController;
 
@@ -27,16 +28,20 @@ class DashboardController extends GetxController with SingleGetTickerProviderMix
   void loadOptions() {
     options.addAll([
       OptionModel(title: 'إحصائيات|Stat', route: AppRoutes.stat),
-      OptionModel(title: 'إحصائيات القتلى', route: AppRoutes.statsKilled),
-      OptionModel(title: 'إحصائيات الجرحى', route: AppRoutes.statsInjured),
-      OptionModel(title: 'إحصائيات القتلى الأطفال', route: AppRoutes.statsKilledChildren),
-      OptionModel(title: 'إحصائيات الجرحى الأطفال', route: AppRoutes.statsInjuredChildren),
+      OptionModel(title: "إحصائيات حوادث المرور", route: AppRoutes.calender),
+      OptionModel(title: "مراكز حرس المرور", route: AppRoutes.trafficCenter),
+      OptionModel(
+          title: 'إحصائيات القتلى الأطفال',
+          route: AppRoutes.statsKilledChildren),
+      OptionModel(title: 'إرسال المطالبات', route: AppRoutes.claims),
       OptionModel(title: 'البيانات المفتوحة', route: AppRoutes.openData),
       OptionModel(title: 'المزيد من الإحصائيات', route: AppRoutes.moreStats),
       OptionModel(title: 'الطرقات المرقمة', route: AppRoutes.numberedRoads),
       OptionModel(title: 'النقاط السوداء', route: AppRoutes.blackSpots),
-      OptionModel(title: 'الحوادث حسب السنوات', route: AppRoutes.accidentsByYear),
-      OptionModel(title: 'مفاهيم إحصائية', route: AppRoutes.statisticalConcepts),
+      OptionModel(
+          title: 'الحوادث حسب السنوات', route: AppRoutes.accidentsByYear),
+      OptionModel(
+          title: 'مفاهيم إحصائية', route: AppRoutes.statisticalConcepts),
     ]);
   }
 }

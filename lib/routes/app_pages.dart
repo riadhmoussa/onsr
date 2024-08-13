@@ -1,8 +1,14 @@
-
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:onsr/bindings/login_binding.dart';
 import 'package:onsr/bindings/splash_binding.dart';
+import 'package:onsr/views/calendar_screen.dart';
+import 'package:onsr/views/claim_screen.dart';
+import 'package:onsr/views/forgot_password_screen.dart';
+import 'package:onsr/views/login_screen.dart';
+import 'package:onsr/views/register_screen.dart';
 import 'package:onsr/views/result_stat_screen.dart';
 import 'package:onsr/views/splash_screen.dart';
+import 'package:onsr/views/traffic_center_screen.dart';
 
 import '../bindings/dashboard_binding.dart';
 import '../views/dashboard_screen.dart';
@@ -28,6 +34,31 @@ class AppPages {
     GetPage(
       name: AppRoutes.resultStat,
       page: () => ResultStatScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.calender,
+      page: () => CalendarScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.trafficCenter,
+      page: () => TrafficCenterScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.login,
+      page: () => LoginScreen(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.forgetPassword,
+      page: () => ForgotPasswordScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.register,
+      page: () => RegisterScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.claims,
+      page: () => ClaimScreen(),
     ),
   ];
 }

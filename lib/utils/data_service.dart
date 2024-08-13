@@ -8,4 +8,8 @@ class DataService {
   Future<Map<String, dynamic>> fetchData(String type, String year) {
     return httpClient.getData(type, year);
   }
+
+  Future<List> getTrafficCenters() {
+    return httpClient.getTrafficCenters();
+  }
 }
