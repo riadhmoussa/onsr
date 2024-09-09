@@ -116,8 +116,8 @@ class ResultStatScreen extends StatelessWidget {
                 _buildStatisticItem(
                   label: "جرحى",
                   value: statistic.blesses ?? 'غير متوفر',
-                  color: Color(0xFF008000),
-                  icon: Icons.favorite,
+                  color: Color(0xFFFFC107),
+                  icon: Icons.warning_amber,
                 ),
               ],
             ),

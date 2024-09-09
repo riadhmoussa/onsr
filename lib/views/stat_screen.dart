@@ -12,7 +12,7 @@ class StatView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('إحصائيات|Stat'),
+        title: Text('stats'.tr),
       ),
       body: Obx(() => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -76,7 +76,7 @@ class StatView extends StatelessWidget {
                   onPressed: () {
                     statController.goToResultScreen();
                   },
-                  child: Text("النتائج"),
+                  child: Text('results'.tr),
                 ),
               ],
             ),

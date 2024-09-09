@@ -9,7 +9,7 @@ class CalendarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('جدول إحصائيات حوادث المرور', style: TextStyle(fontSize: 16)),
+        title: Text('traffic_stats_table'.tr, style: TextStyle(fontSize: 16)),
         backgroundColor: Colors.black,
       ),
       body: Obx(() {
@@ -53,7 +53,7 @@ class CalendarScreen extends StatelessWidget {
       return DateTime(controller.currentMonth.value.year, controller.currentMonth.value.month, index + 1);
     });
 
-    final weekDays = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+    final weekDays = ['sunday'.tr, 'monday'.tr, 'tuesday'.tr, 'wednesday'.tr, 'thursday'.tr, 'friday'.tr, 'saturday'.tr];
 
     return Column(
       children: [

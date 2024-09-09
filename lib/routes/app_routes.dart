@@ -19,5 +19,7 @@ class AppRoutes {
   static const forgetPassword = '/forgetPassword';
   static const register = '/register';
   static const claims = '/claims';
+  static const languages = '/languages';
+  static const regionsMap = '/regionsMap';
 
 }

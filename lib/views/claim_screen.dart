@@ -10,7 +10,7 @@ class ClaimScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('إرسال مطالبة'),
+        title: Text('submit_claim'.tr),
         backgroundColor: Color(0xFFff0000), // Set app bar color
       ),
       body: SafeArea(
@@ -22,7 +22,7 @@ class ClaimScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'إرسال مطالبة',
+                    'submit_claim'.tr,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class ClaimScreen extends StatelessWidget {
                     ),
                     child: _claimController.isLoading.value
                         ? CircularProgressIndicator()
-                        : Text('إرسال'),
+                        : Text('send'.tr),
                   ),
                 ],
               ),
@@ -60,7 +60,7 @@ class ClaimScreen extends StatelessWidget {
   Widget _buildEmailField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'البريد الإلكتروني',
+        labelText: 'email'.tr,
         border: OutlineInputBorder(),
         fillColor: Colors.white,
         filled: true,
@@ -68,8 +68,8 @@ class ClaimScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) => _claimController.email.value = value,
       validator: MultiValidator([
-        RequiredValidator(errorText: 'البريد الإلكتروني مطلوب'),
-        EmailValidator(errorText: 'أدخل بريد إلكتروني صالح'),
+        RequiredValidator(errorText: 'email_required'.tr),
+        EmailValidator(errorText: 'enter_valid_email'.tr),
       ]),
     );
   }
@@ -77,27 +77,27 @@ class ClaimScreen extends StatelessWidget {
   Widget _buildSubjectField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'الموضوع',
+        labelText: 'subject'.tr,
         border: OutlineInputBorder(),
         fillColor: Colors.white,
         filled: true,
       ),
       onChanged: (value) => _claimController.subject.value = value,
-      validator: RequiredValidator(errorText: 'الموضوع مطلوب'),
+      validator: RequiredValidator(errorText: 'subject_required'.tr),
     );
   }
 
   Widget _buildDescriptionField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'الوصف',
+        labelText: 'description'.tr,
         border: OutlineInputBorder(),
         fillColor: Colors.white,
         filled: true,
       ),
       maxLines: 5,
       onChanged: (value) => _claimController.description.value = value,
-      validator: RequiredValidator(errorText: 'الوصف مطلوب'),
+      validator: RequiredValidator(errorText: 'description_required'.tr),
     );
   }
 }

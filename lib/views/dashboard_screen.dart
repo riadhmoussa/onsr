@@ -13,8 +13,8 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('المرصد الوطني لسلامة المرور'),
-        backgroundColor: Colors.black,
+        title: Text('national_traffic_observatory'.tr),
+        backgroundColor: Colors.white,
       ),
       body: GetBuilder<DashboardController>(
         builder: (controller) {
@@ -40,16 +40,27 @@ class DashboardView extends StatelessWidget {
   Widget _buildOptionCard(OptionModel option, int index) {
     return GestureDetector(
       onTap: () {
-        if (index == 4) {
+        if (option.route == null) {
+          // If route is null, perform logout
           FirebaseAuth auth = FirebaseAuth.instance;
           User? user = auth.currentUser;
-          if (user == null) {
-            Get.toNamed(AppRoutes.login);
+
+          if (user != null) {
+            // User is logged in, perform logout
+            auth.signOut().then((_) {
+              // Navigate to login screen after logout
+              Get.offAllNamed(AppRoutes.login);
+            }).catchError((error) {
+              // Handle logout error
+              print('Logout error: $error');
+            });
           } else {
-            Get.toNamed(option.route);
+            // No user is logged in, navigate to login screen
+            Get.toNamed(AppRoutes.login);
           }
         } else {
-          Get.toNamed(option.route);
+          // Route is not null, navigate to the given route
+          Get.toNamed(option.route!);
         }
       },
       child: Card(

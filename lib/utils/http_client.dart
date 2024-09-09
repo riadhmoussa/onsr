@@ -26,7 +26,7 @@ class HttpClient {
   }
 
   Future<List> getTrafficCenters() async {
-    final response = await http.get(Uri.parse("http://192.168.1.102:3000/api/traffic-centers"));
+    final response = await http.get(Uri.parse("http://10.0.1.1:3000/api/traffic-centers"));
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {

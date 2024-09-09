@@ -1,10 +1,13 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:onsr/bindings/login_binding.dart';
 import 'package:onsr/bindings/splash_binding.dart';
+import 'package:onsr/views/age_distribution_screen.dart';
 import 'package:onsr/views/calendar_screen.dart';
 import 'package:onsr/views/claim_screen.dart';
 import 'package:onsr/views/forgot_password_screen.dart';
+import 'package:onsr/views/language_selection_screen.dart';
 import 'package:onsr/views/login_screen.dart';
+import 'package:onsr/views/map_screen.dart';
 import 'package:onsr/views/register_screen.dart';
 import 'package:onsr/views/result_stat_screen.dart';
 import 'package:onsr/views/splash_screen.dart';
@@ -59,6 +62,18 @@ class AppPages {
     GetPage(
       name: AppRoutes.claims,
       page: () => ClaimScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.openData,
+      page: () => AgeDistributionScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.languages,
+      page: () => LanguageSelectionScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.regionsMap,
+      page: () => RegionsScreen(),
     ),
   ];
 }

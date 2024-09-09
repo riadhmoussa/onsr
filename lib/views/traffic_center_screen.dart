@@ -17,7 +17,7 @@ class TrafficCenterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('مراكز حرس المرور في سوسة'),
+        title: Text('traffic_centers_sousse'.tr),
         backgroundColor: Colors.black,
       ),
       body: Obx(() {

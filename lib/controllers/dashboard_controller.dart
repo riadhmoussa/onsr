@@ -27,21 +27,24 @@ class DashboardController extends GetxController
 
   void loadOptions() {
     options.addAll([
-      OptionModel(title: 'إحصائيات|Stat', route: AppRoutes.stat),
-      OptionModel(title: "إحصائيات حوادث المرور", route: AppRoutes.calender),
-      OptionModel(title: "مراكز حرس المرور", route: AppRoutes.trafficCenter),
+      OptionModel(title: 'stats'.tr, route: AppRoutes.stat),
+      OptionModel(title: 'traffic_stats'.tr, route: AppRoutes.calender),
+      OptionModel(title: 'traffic_centers'.tr, route: AppRoutes.trafficCenter),
       OptionModel(
-          title: 'إحصائيات القتلى الأطفال',
-          route: AppRoutes.statsKilledChildren),
-      OptionModel(title: 'إرسال المطالبات', route: AppRoutes.claims),
-      OptionModel(title: 'البيانات المفتوحة', route: AppRoutes.openData),
-      OptionModel(title: 'المزيد من الإحصائيات', route: AppRoutes.moreStats),
-      OptionModel(title: 'الطرقات المرقمة', route: AppRoutes.numberedRoads),
-      OptionModel(title: 'النقاط السوداء', route: AppRoutes.blackSpots),
+          title: 'child_deaths_stats'.tr, route: AppRoutes.regionsMap),
+      OptionModel(title: 'claims'.tr, route: AppRoutes.claims),
       OptionModel(
-          title: 'الحوادث حسب السنوات', route: AppRoutes.accidentsByYear),
+          title: 'age_deaths_distribution'.tr, route: AppRoutes.openData),
+      OptionModel(title: 'more_stats'.tr, route: AppRoutes.moreStats),
+      OptionModel(title: 'numbered_roads'.tr, route: AppRoutes.numberedRoads),
+      OptionModel(title: 'black_spots'.tr, route: AppRoutes.blackSpots),
       OptionModel(
-          title: 'مفاهيم إحصائية', route: AppRoutes.statisticalConcepts),
+          title: 'accidents_by_year'.tr, route: AppRoutes.accidentsByYear),
+      OptionModel(
+          title: 'statistical_concepts'.tr,
+          route: AppRoutes.statisticalConcepts),
+      OptionModel(title: 'language'.tr, route: AppRoutes.languages),
+      OptionModel(title: 'logout'.tr),
     ]);
   }
 }

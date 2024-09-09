@@ -19,11 +19,11 @@ class SplashView extends StatelessWidget {
             Image.asset('assets/onsr_logo.png', width: 100, height: 100),
             SizedBox(height: 20),
             FadeInText(
-              text: 'المرصد الوطني',
+              text: 'national_observatory'.tr,
               delay: Duration(seconds: 1),
             ),
             FadeInText(
-              text: 'لسلامة المرور',
+              text: 'traffic_safety'.tr,
               delay: Duration(seconds: 2),
             ),
           ],

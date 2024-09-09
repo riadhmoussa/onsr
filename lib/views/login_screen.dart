@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 20),
                         Text(
-                          'مرحباً بعودتك!',
+                          'welcome_back'.tr,
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
@@ -91,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                                     color: Colors.white,
                                   )
                                       : Text(
-                                    'تسجيل الدخول',
+                                    'login'.tr,
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                                   _loginController.goToForgetPassword();
                                 },
                                 child: Text(
-                                  'نسيت كلمة المرور؟',
+                                  'forgot_password'.tr,
                                   style: TextStyle(
                                     color: Colors.red.shade800,
                                     fontSize: 16,
@@ -119,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                                   Get.toNamed(AppRoutes.register);
                                 },
                                 child: Text(
-                                  'ليس لديك حساب؟ سجل الآن',
+                                  'no_account'.tr,
                                   style: TextStyle(
                                     color: Colors.red.shade800,
                                     fontSize: 16,
@@ -145,7 +145,7 @@ class LoginScreen extends StatelessWidget {
   Widget _buildEmailField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'البريد الإلكتروني',
+        labelText: 'email'.tr,
         labelStyle: TextStyle(color: Colors.grey[600]),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -162,8 +162,8 @@ class LoginScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) => _loginController.email.value = value,
       validator: MultiValidator([
-        RequiredValidator(errorText: 'البريد الإلكتروني مطلوب'),
-        EmailValidator(errorText: 'أدخل بريد إلكتروني صالح'),
+        RequiredValidator(errorText: 'email_required'.tr),
+        EmailValidator(errorText: 'enter_valid_email'.tr),
       ]),
     );
   }
@@ -171,7 +171,7 @@ class LoginScreen extends StatelessWidget {
   Widget _buildPasswordField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'كلمة المرور',
+        labelText: 'password'.tr,
         labelStyle: TextStyle(color: Colors.grey[600]),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -187,7 +187,7 @@ class LoginScreen extends StatelessWidget {
       ),
       obscureText: true,
       onChanged: (value) => _loginController.password.value = value,
-      validator: RequiredValidator(errorText: 'كلمة المرور مطلوبة'),
+      validator: RequiredValidator(errorText: 'password_required'.tr),
     );
   }
 }

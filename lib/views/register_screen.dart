@@ -33,7 +33,7 @@ class RegisterScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'تسجيل حساب جديد',
+                          'register_new_account'.tr,
                           style: TextStyle(
                             fontSize: 36,
                             color: Colors.white,
@@ -42,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 20),
                         Text(
-                          'املأ التفاصيل أدناه لإنشاء حساب جديد',
+                          'fill_details_to_create_account'.tr,
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
@@ -91,7 +91,7 @@ class RegisterScreen extends StatelessWidget {
                                     color: Colors.white,
                                   )
                                       : Text(
-                                    'تسجيل',
+                                    'register'.tr,
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
@@ -117,7 +117,7 @@ class RegisterScreen extends StatelessWidget {
   Widget _buildEmailField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'البريد الإلكتروني',
+        labelText: 'email'.tr,
         labelStyle: TextStyle(color: Colors.grey[600]),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -134,8 +134,8 @@ class RegisterScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) => _registerController.email.value = value,
       validator: MultiValidator([
-        RequiredValidator(errorText: 'البريد الإلكتروني مطلوب'),
-        EmailValidator(errorText: 'أدخل بريد إلكتروني صالح'),
+        RequiredValidator(errorText: 'email_required'.tr),
+        EmailValidator(errorText: 'enter_valid_email'.tr),
       ]),
     );
   }
@@ -143,7 +143,7 @@ class RegisterScreen extends StatelessWidget {
   Widget _buildPasswordField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'كلمة المرور',
+        labelText: 'password'.tr,
         labelStyle: TextStyle(color: Colors.grey[600]),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -159,14 +159,14 @@ class RegisterScreen extends StatelessWidget {
       ),
       obscureText: true,
       onChanged: (value) => _registerController.password.value = value,
-      validator: RequiredValidator(errorText: 'كلمة المرور مطلوبة'),
+      validator: RequiredValidator(errorText: 'password_required'.tr),
     );
   }
 
   Widget _buildConfirmPasswordField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'تأكيد كلمة المرور',
+        labelText: 'confirm_password'.tr,
         labelStyle: TextStyle(color: Colors.grey[600]),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -184,7 +184,7 @@ class RegisterScreen extends StatelessWidget {
       onChanged: (value) => _registerController.confirmPassword.value = value,
       validator: (value) {
         if (value != _registerController.password.value) {
-          return 'كلمات المرور غير متطابقة';
+          return 'passwords_do_not_match'.tr;
         }
         return null;
       },

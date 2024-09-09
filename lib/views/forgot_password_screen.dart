@@ -12,7 +12,7 @@ class ForgotPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('نسيت كلمة المرور'),
+        title: Text('forgot_password_title'.tr),
         backgroundColor: Colors.red.shade800,
       ),
       body: SafeArea(
@@ -23,7 +23,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور',
+                  'enter_email_to_reset'.tr,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black,
@@ -48,7 +48,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   child: _forgotPasswordController.isLoading.value
                       ? CircularProgressIndicator()
                       : Text(
-                          'إرسال رابط إعادة تعيين',
+                          'send_reset_link'.tr,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   Widget _buildEmailField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'البريد الإلكتروني',
+        labelText: 'email'.tr,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: Colors.red.shade800),
@@ -91,8 +91,8 @@ class ForgotPasswordScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) => _forgotPasswordController.email.value = value,
       validator: MultiValidator([
-        RequiredValidator(errorText: 'البريد الإلكتروني مطلوب'),
-        EmailValidator(errorText: 'أدخل بريد إلكتروني صالح'),
+        RequiredValidator(errorText: 'email_required'.tr),
+        EmailValidator(errorText: 'enter_valid_email'.tr),
       ]),
     );
   }
